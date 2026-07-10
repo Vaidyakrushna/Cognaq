@@ -44,7 +44,7 @@ export default function Scene({ colors }: { colors: Record<string, string> }) {
   return (
     <div className="canvas-container">
       <Canvas shadows camera={{ position: [3, 2.5, 4], fov: 40 }}>
-        <color attach="background" args={['#0a0a0a']} />
+        <color attach="background" args={['#f3f4f6']} />
         
         {/* Premium Lighting Setup */}
         <ambientLight intensity={0.4} />
