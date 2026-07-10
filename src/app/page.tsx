@@ -20,11 +20,15 @@ export default function Home() {
 
   return (
     <main className="app-container">
-      {/* 3D Viewer */}
+      {/* Fullscreen 3D Viewer */}
       <Scene colors={colors} />
       
-      {/* UI Overlay */}
-      <ConfiguratorUI colors={colors} setColor={handleSetColor} />
+      {/* Floating UI Overlay */}
+      <ConfiguratorUI 
+        colors={colors} 
+        setColor={handleSetColor} 
+        basePrice={299} 
+      />
     </main>
   );
 }
