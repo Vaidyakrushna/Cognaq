@@ -63,8 +63,7 @@ export default function Scene({ colors }: { colors: Record<string, string> }) {
             <ChairModel colors={colors} />
           </PresentationControls>
           
-          {/* Photorealistic Environment Reflections */}
-          <Environment preset="studio" />
+          {/* Removed Environment preset to prevent Suspense hanging if network blocks HDRI download */}
           
           {/* Realistic Contact Shadows */}
           <ContactShadows position={[0, -0.6, 0]} opacity={0.6} scale={10} blur={2} far={4} color="#000000" />
