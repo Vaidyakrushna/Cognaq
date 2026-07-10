@@ -52,16 +52,7 @@ export default function Scene({ colors }: { colors: Record<string, string> }) {
         <spotLight position={[-5, 5, -5]} angle={0.2} penumbra={1} intensity={0.8} />
         
         <Suspense fallback={null}>
-          <PresentationControls 
-            global 
-            rotation={[0, 0.3, 0]} 
-            polar={[-Math.PI / 4, Math.PI / 4]} 
-            azimuth={[-Math.PI / 2, Math.PI / 2]} 
-            config={{ mass: 2, tension: 500 }} 
-            snap={{ mass: 4, tension: 1500 }}
-          >
-            <ChairModel colors={colors} />
-          </PresentationControls>
+          <ChairModel colors={colors} />
           
           {/* Removed Environment preset to prevent Suspense hanging if network blocks HDRI download */}
           
@@ -69,8 +60,16 @@ export default function Scene({ colors }: { colors: Record<string, string> }) {
           <ContactShadows position={[0, -0.6, 0]} opacity={0.6} scale={10} blur={2} far={4} color="#000000" />
         </Suspense>
         
-        {/* Fallback controls if PresentationControls doesn't suffice, but PresentationControls is smoother for product viewers */}
-        {/* <OrbitControls enablePan={false} minPolarAngle={0} maxPolarAngle={Math.PI / 2 + 0.1} minDistance={2} maxDistance={6} makeDefault /> */}
+        <OrbitControls 
+          enablePan={false} 
+          minPolarAngle={Math.PI / 6} 
+          maxPolarAngle={Math.PI / 2} 
+          minDistance={2} 
+          maxDistance={6} 
+          makeDefault 
+          autoRotate={false}
+          enableDamping={true}
+        />
       </Canvas>
     </div>
   );
